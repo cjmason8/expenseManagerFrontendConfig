@@ -1,0 +1,7 @@
+expenseManagerFrontend:
+  image: cjmason8/expense-manager-frontend:${TAG_NAME}
+  external_links:
+    - expenseManager/expenseManager:expenseManager
+  volumes:
+    - /applogs:/applogs
+

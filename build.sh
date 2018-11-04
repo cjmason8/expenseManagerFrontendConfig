@@ -47,11 +47,12 @@ if [ -z "${TAG_NAME}" ]; then
 fi
 if [[ "$(docker images -q ${FULL_IMAGE_NAME}:${TAG_NAME} 2> /dev/null)" == "" ]]; then
 
+cd ../expenseManagerFrontend
 echo "Creating image: ${FULL_IMAGE_NAME}:${TAG_NAME}"
   if [ $ENV == "lcl" ]; then
-    docker build -f Dockerfile_lcl --no-cache --pull --build-arg env=${ENV_NAME} -t ${FULL_IMAGE_NAME}:${TAG_NAME} .
+    docker build -f ../expenseManagerFrontendConfig/Dockerfile_lcl --no-cache --pull --build-arg env=${ENV_NAME} -t ${FULL_IMAGE_NAME}:${TAG_NAME} .
   else
-    docker build --no-cache --pull --build-arg env=${ENV_NAME} -t ${FULL_IMAGE_NAME}:${TAG_NAME} .
+    docker build -f ../expenseManagerFrontendConfig/Dockerfile --no-cache --pull --build-arg env=${ENV_NAME} -t ${FULL_IMAGE_NAME}:${TAG_NAME} .
   fi
 fi
 

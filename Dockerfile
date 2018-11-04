@@ -1,4 +1,4 @@
-FROM cjmason8/ubuntu-nodev6:latest
+FROM node:8.12.0-alpine
 
 MAINTAINER "Chris Mason <cjmason8@gmail.com>"
 

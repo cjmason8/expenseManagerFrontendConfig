@@ -6,7 +6,13 @@ RANCHER_URL=$3
 ENV_NAME=$4
 PROJECT_NAME=expense-manager-frontend
 BASE_DIR=${PWD}
-TAG_NAME=$5
+TAG_NAME=$(<VERSION)
+
+if [ $ENV_NAME == "lcl" ]; then
+  TAG_NAME=$(<LOCAL)
+fi
+
+echo "VER=$TAG_NAME"
 
 echo -e "TAG_NAME=$TAG_NAME" > env.txt
 

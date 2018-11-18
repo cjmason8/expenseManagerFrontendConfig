@@ -54,7 +54,8 @@ echo "Creating image: ${FULL_IMAGE_NAME}:${TAG_NAME}"
   if [ $ENV == "lcl" ]; then
     docker build -f ../Dockerfile_lcl --no-cache --pull --build-arg env=${ENV_NAME} -t ${FULL_IMAGE_NAME}:${TAG_NAME} .
   else
-    docker build -f ../Dockerfile --no-cache --pull --build-arg env=${ENV_NAME} -t ${FULL_IMAGE_NAME}:${TAG_NAME} .
+    cp ../Dockerfile .
+    docker build --no-cache --pull --build-arg env=${ENV_NAME} -t ${FULL_IMAGE_NAME}:${TAG_NAME} .
   fi
 fi
 

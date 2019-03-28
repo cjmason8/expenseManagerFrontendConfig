@@ -4,9 +4,12 @@ MAINTAINER "Chris Mason <cjmason8@gmail.com>"
 
 ARG env
 
+RUN apk update
+RUN apk add curl
+
 # App Config
 COPY src /app/src
-COPY angular-cli.json /app/
+COPY angular.json /app/
 COPY package.json /app/
 
 WORKDIR /app

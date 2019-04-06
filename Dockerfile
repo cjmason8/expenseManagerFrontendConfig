@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 FROM node:11.12.0-alpine
+=======
+FROM node:11.12-alpine
+>>>>>>> Stashed changes
 
 MAINTAINER "Chris Mason <cjmason8@gmail.com>"
 

@@ -3,7 +3,4 @@ expenseManagerFrontend:
     file: ../docker-compose.yml
     service: expenseManagerFrontend
   environment:
-    BACKEND_END_POINT: http://172.17.0.1:8083
-  ports:
-    - "8084:4200"
-  command: npm start
+    BACKEND_END_POINT: http://expenseManager:4083

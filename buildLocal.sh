@@ -28,5 +28,5 @@ docker build -f ../expenseManagerFrontendConfig/Dockerfile_lcl --no-cache --pull
 
 docker tag ${FULL_IMAGE_NAME}:${TAG_NAME} cjmason8/${FULL_IMAGE_NAME}:${TAG_NAME}
 docker tag ${FULL_IMAGE_NAME}:${TAG_NAME} cjmason8/${FULL_IMAGE_NAME}:latest
-docker push cjmason8/${FULL_IMAGE_NAME}:latest
-docker push cjmason8/${FULL_IMAGE_NAME}:${TAG_NAME}
+#docker push cjmason8/${FULL_IMAGE_NAME}:latest
+#docker push cjmason8/${FULL_IMAGE_NAME}:${TAG_NAME}

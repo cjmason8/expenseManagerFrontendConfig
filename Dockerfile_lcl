@@ -9,7 +9,7 @@ RUN apk add curl
 
 # App Config
 COPY src /app/src
-COPY angular.json /app/
+COPY angular-cli.json /app/
 COPY package.json /app/
 
 WORKDIR /app

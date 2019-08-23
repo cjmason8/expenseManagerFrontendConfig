@@ -13,7 +13,7 @@ node {
                 credentialsId: 'Github',
                 branch: "master"
             )
-            dir('expenseManager') {
+            dir('expenseManagerFrontend') {
                 git(
                     url: 'https://github.com/cjmason8/expenseManagerFrontend.git',
                     credentialsId: 'Github',

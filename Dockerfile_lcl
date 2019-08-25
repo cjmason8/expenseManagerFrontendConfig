@@ -4,9 +4,6 @@ MAINTAINER "Chris Mason <cjmason8@gmail.com>"
 
 ARG env
 
-RUN apk update
-RUN apk add curl
-
 # App Config
 COPY src /app/src
 COPY angular.json /app/
@@ -17,7 +14,7 @@ WORKDIR /app
 RUN npm install
 RUN npm install -g @angular/cli
 
-RUN ng build
+RUN ng build --configuration=test
 
 FROM nginx:1.14.1-alpine
 

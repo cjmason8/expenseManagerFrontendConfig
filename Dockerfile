@@ -6,7 +6,7 @@ ARG env
 
 # App Config
 COPY src /app/src
-COPY angular-cli.json /app/
+COPY angular.json /app/
 COPY package.json /app/
 
 WORKDIR /app

@@ -19,5 +19,4 @@ fi
 echo "Creating image: ${FULL_IMAGE_NAME}:${TAG_NAME}"
 
 cd expenseManagerFrontend
-cp ../Dockerfile .
-docker build --no-cache --pull --build-arg env=${ENV_NAME} -t ${FULL_IMAGE_NAME}:${TAG_NAME} .
+docker build --no-cache --pull -f ../Dockerfile --build-arg env=${ENV_NAME} -t ${FULL_IMAGE_NAME}:${TAG_NAME} .

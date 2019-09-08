@@ -14,7 +14,7 @@ WORKDIR /app
 RUN npm install
 RUN npm install -g @angular/cli
 
-RUN ng build --configuration=production
+RUN ng build --configuration=test
 
 FROM nginx:1.14.1-alpine
 

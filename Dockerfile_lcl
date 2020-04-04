@@ -1,4 +1,4 @@
-FROM node:11.12.0-alpine as builder
+FROM node:12.0-alpine as builder
 
 MAINTAINER "Chris Mason <cjmason8@gmail.com>"
 

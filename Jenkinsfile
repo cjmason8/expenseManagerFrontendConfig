@@ -5,32 +5,19 @@ def version = -1
 def imageName = "expense-manager-frontend"
 
 node {
-    stage('Checkout') {
-        def file = new File("checkout.sh")
-        if (!file.exists()) {
-            git(
-                url: 'https://github.com/cjmason8/expenseManagerFrontendConfig.git',
-                credentialsId: 'Github',
-                branch: "master"
-            )
-            dir('expenseManagerFrontend') {
-                git(
-                    url: 'https://github.com/cjmason8/expenseManagerFrontend.git',
-                    credentialsId: 'Github',
-                    branch: "master"
-                )    
-            }
-        }
+    stage('Delete Workspace') {
+        sh 'rm -rf *'
+        sh 'rm -rf .git'
+        sh 'rm -f .gitignore'
+    }
 
-        withCredentials([usernamePassword(credentialsId: 'Github', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
-            sh './checkout.sh $PASSWORD expenseManagerFrontend'
-        }
+    stage('Checkout') {
+        sh 'git clone git@github.com:cjmason8/expenseManagerFrontendConfig.git .'
+        sh 'git clone git@github.com:cjmason8/expenseManagerFrontend.git'
     }
 
     stage('Update Version') {
-        withCredentials([usernamePassword(credentialsId: 'Github', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
-            sh './updateVersion.sh $PASSWORD expenseManagerFrontend'
-        }
+        sh './updateVersion.sh'
 
         version = readFile('VERSION').trim()
     }

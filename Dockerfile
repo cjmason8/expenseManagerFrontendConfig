@@ -24,6 +24,7 @@ RUN apk add curl
 
 ## Copy our default nginx config
 COPY default.conf /etc/nginx/conf.d/
+COPY openssl.cnf /etc/ssl/
 
 ## Remove default nginx website
 RUN rm -rf /usr/share/nginx/html/*

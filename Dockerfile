@@ -13,6 +13,7 @@ WORKDIR /app
 
 RUN npm install
 RUN npm install -g @angular/cli
+RUN npm install -g openssl
 
 RUN ng build --configuration=production
 

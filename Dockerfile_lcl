@@ -1,4 +1,4 @@
-FROM node:12.14.1-alpine as builder
+FROM node:14.20.1-alpine3.16 as builder
 
 MAINTAINER "Chris Mason <cjmason8@gmail.com>"
 
@@ -12,11 +12,11 @@ COPY package.json /app/
 WORKDIR /app
 
 RUN npm install
-RUN npm install -g @angular/cli
+RUN npm install -g @angular/cli@15.2.0
 
 RUN ng build --configuration=test
 
-FROM nginx:1.14.1-alpine
+FROM arm64v8/nginx:1.24-alpine
 
 RUN apk update
 RUN apk add curl

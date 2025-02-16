@@ -1,6 +1,10 @@
-expenseManagerFrontend:
-  extends:
-    file: ../docker-compose.yml
-    service: expenseManagerFrontend
-  environment:
-    BACKEND_END_POINT: http://expenseManager:8083
+version: '2'
+services:
+  expenseManagerFrontend:
+    extends:
+      file: ../docker-compose.yml
+      service: expenseManagerFrontend
+    environment:
+      BACKEND_END_POINT: http://host.docker.internal:8083
+    ports:
+      - 8084:80
